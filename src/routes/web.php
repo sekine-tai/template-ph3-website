@@ -5,9 +5,25 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TopController;
+use App\Http\Controllers\PostController;
+
+Route::post('post', [PostController::class,'store'])
+->name('post.store');
+
+Route::get('post/create',[PostController::class,'create']);
 
 Route::get('/test',[TestController::class,'test'])
 ->name('test');
+
+Route::get('/users',[UserController::class,'users'])
+->name('users');
+
+Route::get('/top',[TopController::class,'top'])
+->name('top');
+
+Route::get('post',[PostController::class,'index']);
 
 /*
 |--------------------------------------------------------------------------

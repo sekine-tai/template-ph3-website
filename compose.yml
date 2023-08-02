@@ -9,14 +9,14 @@ services:
   # appやwebにnode.jsをインストールするのは単一責任の原則に反するので、別のコンテナにする
   node:
     image: node:18-alpine
+    ports:
+      - 5173:5173
     volumes:
       - ./src:/work/web
     working_dir: /work/web
     tty: true
     depends_on:
       - app
-    ports:
-      - 5173:5173
 
   web:
     image: nginx
@@ -44,6 +44,8 @@ services:
 # 使いたい人はコメントアウトを解除してください
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    ports:
+      - 1234:80
     environment:
       - PMA_ARBITRARY=0
       - PMA_HOSTS=mysql
@@ -51,5 +53,3 @@ services:
       - PMA_PASSWORD=password
     links:
       - mysql
-    ports:
-      - 1234:80
