@@ -17,7 +17,9 @@
     <ul class="headerR">
       <div class="RightL">
         <li>トップページ</li>
-        <li>クイズ</li>
+        <a href="{{ route('quizzes.index') }}">
+          <li>クイズ</li>
+        </a>
       </div>
       <div class="RightR">
         <li>

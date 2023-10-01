@@ -8,6 +8,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\QuizzeController;
 
 Route::post('post', [PostController::class,'store'])
 ->name('post.store');
@@ -25,6 +26,7 @@ Route::get('/top',[TopController::class,'top'])
 
 Route::get('post',[PostController::class,'index']);
 
+Route::get('quizzes',[QuizzeController::class, 'quizzes'])->name('quizzes.index');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
