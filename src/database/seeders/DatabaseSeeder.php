@@ -12,8 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            QuizzeSeeder::class
-        ]);
+        // $this->call([
+        //     QuizzeSeeder::class
+        // ]);
+
+        \App\Models\Quizze::factory(100)->create();
+        // ↑ここの個数でダミーデータの個数を変えれるよ
     }
 }

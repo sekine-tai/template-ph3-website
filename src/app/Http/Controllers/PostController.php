@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Quizze;
 
 class PostController extends Controller
 {
@@ -22,16 +23,11 @@ class PostController extends Controller
 
         $post = Post::create($validated);
 
-        // $post = Post::create([
-        //     'title' => $request->title,
-        //     'body'=>$request->body
-        // ]);
-
         return back()->with('message','保存しました');
     }
 
     public function index(){
-        $posts=Post::all();
+        $quizzes=Quizze::all();
         return view('post.index',compact('posts'));
     }
 }

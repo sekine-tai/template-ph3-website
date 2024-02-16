@@ -11,20 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quizzes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->comment('ITクイズ');
-            $table->timestamps();
-
-            $table->softDeletes();
+        Schema::table('users', function(Blueprint $table){
+            $table->string('role')->after('name')->nullable();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('quizzes');
+        Schema::table('users', function(Blueprint $table){
+            $table->dropColumn('role');
+        });
+        
     }
 };

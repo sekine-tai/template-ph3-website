@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quizzes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->comment('ITクイズ');
-            $table->timestamps();
-
+        Schema::table('quizze_questions', function (Blueprint $table) {
+            //
             $table->softDeletes();
         });
     }
@@ -25,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quizzes');
+        Schema::table('quizze_questions', function (Blueprint $table) {
+            //
+            $table->dropSoftDeletes();
+        });
     }
 };
